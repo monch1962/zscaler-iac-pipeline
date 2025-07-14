@@ -1,0 +1,29 @@
+# Environments
+.env
+.venv
+env/
+venv/
+__pycache__/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+
+# Docker
+docker-compose.override.yml
+
+# VSCode
+.vscode/
+
+# pre-commit
+.pre-commit-cache/

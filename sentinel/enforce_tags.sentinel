@@ -1,0 +1,12 @@
+import "tfplan/v2" as tfplan
+
+required_tags = ["owner", "environment"]
+
+main = rule {
+  all tfplan.resource_changes as rc {
+    all required_tags as tag {
+      rc.applies_to == "zpa_application_segment" and
+      tag in keys(rc.values.tags)
+    }
+  }
+}

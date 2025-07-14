@@ -1,0 +1,7 @@
+- name: deny unnamed SCIM group rule
+  input:
+    resource_type: zia_scim_group_rule
+    resource:
+      name: ""
+  want_result:
+    - msg: "SCIM group rule must include a name."

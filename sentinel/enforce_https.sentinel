@@ -1,0 +1,12 @@
+import "tfplan/v2" as tfplan
+
+https_check = func(resource) {
+  resource.applies_to == "zpa_application_segment" and
+  resource.values.application_protocol == "HTTP"
+}
+
+main = rule {
+  all tfplan.resource_changes as rc {
+    not https_check(rc)
+  }
+}

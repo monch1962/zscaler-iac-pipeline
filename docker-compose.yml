@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  zscaler-devsecops:
+    build: .
+    volumes:
+      - ./terraform:/iac/terraform
+      - ./policy:/iac/policy
+      - ./sentinel:/iac/sentinel
+      - ./policy/test:/iac/test
+      - ./gatekeeper:/iac/gatekeeper
+    tty: true

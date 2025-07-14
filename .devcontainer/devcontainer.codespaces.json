@@ -1,0 +1,29 @@
+{
+  "name": "Zscaler DevSecOps (Codespaces)",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "ms-azuretools.vscode-docker",
+        "esbenp.prettier-vscode",
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.formatOnSave": true
+      }
+    }
+  },
+  "postCreateCommand": "pre-commit install || true",
+  "mounts": [
+    "source=${localWorkspaceFolder}/terraform,target=/iac/terraform,type=bind",
+    "source=${localWorkspaceFolder}/policy,target=/iac/policy,type=bind",
+    "source=${localWorkspaceFolder}/sentinel,target=/iac/sentinel,type=bind",
+    "source=${localWorkspaceFolder}/policy/test,target=/iac/test,type=bind",
+    "source=${localWorkspaceFolder}/gatekeeper,target=/iac/gatekeeper,type=bind"
+  ]
+}

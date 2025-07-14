@@ -1,0 +1,11 @@
+- name: deny http application protocol
+  input:
+    resource_type: zpa_application_segment
+    resource:
+      application_protocol: HTTP
+      domain_names: ["internal.example.com"]
+      tags:
+        owner: "secops"
+        environment: "prod"
+  want_result:
+    - msg: "Application Segment must not use HTTP."

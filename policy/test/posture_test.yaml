@@ -1,0 +1,7 @@
+- name: deny posture profile missing OS
+  input:
+    resource_type: zpa_posture_profile
+    resource:
+      settings: {}
+  want_result:
+    - msg: "Posture profile must define OS criteria."

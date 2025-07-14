@@ -1,0 +1,8 @@
+import "tfplan/v2" as tfplan
+
+main = rule {
+  all tfplan.resource_changes as rc {
+    rc.applies_to != "zia_firewall_rule" or
+    rc.values.protocol != "ALL"
+  }
+}

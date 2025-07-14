@@ -1,0 +1,8 @@
+- name: deny empty custom dlp rule
+  input:
+    resource_type: zia_dlp_rule
+    resource:
+      rule_type: CUSTOM
+      patterns: []
+  want_result:
+    - msg: "Custom DLP rules must include at least one pattern."

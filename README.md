@@ -57,7 +57,6 @@ You can extend this repo to support:
 - Posture Profile Enforcement
 - SCIM Group Rule Validation
 
-Let me know if you'd like support for GitLab, Jenkins, or TFC automated policy set deployment.
 
 ---
 
@@ -75,12 +74,12 @@ This pipeline ensures that all Zscaler IaC changes are:
 ```mermaid
 graph TD
   A[Developer Creates Terraform Change] --> B[GitHub Pull Request]
-  B --> C[Terraform Plan (CI)]
+  B --> C[Terraform Plan]
   C --> D[Run OPA Policy Checks via Conftest]
   D -->|Pass| E[Merge Allowed]
   D -->|Fail| F[Block Merge & Alert]
   E --> G[Terraform Apply]
-  G --> H[Terraform Cloud Sentinel Policies (Optional)]
+  G --> H[Terraform Cloud Sentinel Policies]
   H -->|Pass| I[Deploy Config to Zscaler]
   H -->|Fail| J[Rollback / Review]
 ```
